@@ -5,7 +5,7 @@ const bodyParser = require("body-parser")
 const app = express();
 app.use(bodyParser.urlencoded({extended : true}))
 
-mongoose.connect("mongodb+srv://sideeq:sideeq12@cluster0.7rhnk.mongodb.net/myapiDB", {useNewUrlParser : true, useUnifiedTopology : true})
+mongoose.connect("mongodb+srv://sideeq:@cluster0.7rhnk.mongodb.net/myapiDB", {useNewUrlParser : true, useUnifiedTopology : true})
 
 const myApischema = mongoose.Schema({
     title : String,
