@@ -44,6 +44,19 @@ app.get("/request", (req,res)=>{
         }
     })
 })
+app.get("/request/:userText", (req,res)=>{
+    MyPoem.find({title : req.params.userText}, (err, result)=>{
+        if(!err){
+            if(result){
+                    res.send(result)
+            }else{
+                res.send("No Article found with this title")
+            }
+        }else{
+            res.send(err +"is the issue with the API request")
+        }
+    })
+})
 
 app.listen(8008, ()=>{
     console.log("App running on Port 8008")
