@@ -53,7 +53,22 @@ app.get("/request/:userText", (req,res)=>{
                 res.send("No Article found with this title")
             }
         }else{
-            res.send(err +"is the issue with the API request")
+            res.send(err +"Is the issue with the API request")
+        }
+    })
+})
+
+app.get("/request/author/:userText", (req, res)=>{
+    console.log(req.params.userText)
+    MyPoem.find({Author :req.params.userText}, (err, result)=>{
+        if(!err){
+            if(result){
+                res.send(result)
+            }else{
+                res.send("There is no article written by the specified author")
+            }
+        }else{
+            res.send("there's an error with the connection string")
         }
     })
 })
