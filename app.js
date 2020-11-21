@@ -73,6 +73,6 @@ app.get("/request/author/:userText", (req, res)=>{
     })
 })
 
-app.listen( process.env ||8008, ()=>{
+app.listen( process.env.PORT ||8008, ()=>{
     console.log("App running on Port 8008")
 })
