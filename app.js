@@ -17,10 +17,13 @@ const myApischema = mongoose.Schema({
 const MyPoem = mongoose.model("MyPoem", myApischema)
 
 
-app.get("/", (req, res)=>{
+app.get("/write", (req, res)=>{
    res.sendFile( __dirname +"/index.html")
 })
-app.post("/", (req, res)=>{
+app.get("/", (req,res)=>{
+    res.sendFile(__dirname+"/Poems.html")
+})
+app.post("/write", (req, res)=>{
     let newPoem = new MyPoem({
         title : req.body.title,
         Poem : req.body.poem,
