@@ -23,7 +23,7 @@ app.get("/write", (req, res)=>{
    res.render("index")
 })
 app.get("/", (req,res)=>{
-    res.sendFile(__dirname+"/Poems.html")
+    res.render("Poems")
 })
 app.post("/write", (req, res)=>{
     let newPoem = new MyPoem({
@@ -35,7 +35,7 @@ app.post("/write", (req, res)=>{
         if(err){
             console.log(err)
         }else{
-            res.sendFile(__dirname+"/success.html")
+            res.render("success")
         }
     })
   
