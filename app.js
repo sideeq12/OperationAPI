@@ -4,7 +4,9 @@ const bodyParser = require("body-parser")
 require('dotenv').config()
 
 const app = express();
+app.use(express.static('body'))
 app.use(bodyParser.urlencoded({extended : true}))
+app.set("view engine", "ejs")
 
 mongoose.connect("mongodb+srv://sideeq:"+process.env.PASS+"@cluster0.7rhnk.mongodb.net/MyAPI", {useNewUrlParser : true, useUnifiedTopology : true})
 
