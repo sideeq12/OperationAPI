@@ -23,7 +23,7 @@ app.get("/write", (req, res)=>{
    res.render("index")
 })
 app.get("/", (req,res)=>{
-    res.render("Poems")
+    res.render("Poems", {title : "title"})
 })
 app.post("/write", (req, res)=>{
     let newPoem = new MyPoem({
