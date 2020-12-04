@@ -23,7 +23,15 @@ app.get("/write", (req, res)=>{
    res.render("index")
 })
 app.get("/", (req,res)=>{
-    res.render("Poems", {title : "title", author : "searching for author"})
+    MyPoem.find({}, (err, result)=>{
+        if(!err){
+            console.log(result);
+            let title = result[0].title;
+            let author = result[0].Author
+            res.render("Poems", {title : title, author : author})
+
+        }else{console.log(err)}
+    })
 })
 app.post("/write", (req, res)=>{
     let newPoem = new MyPoem({
