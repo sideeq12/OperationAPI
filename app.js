@@ -19,21 +19,10 @@ const myApischema = mongoose.Schema({
 const MyPoem = mongoose.model("MyPoem", myApischema)
 
 
-app.get("/write", (req, res)=>{
+app.get("/", (req, res)=>{
    res.render("index")
 })
-app.get("/", (req,res)=>{
-    MyPoem.find({}, (err, result)=>{
-        if(!err){
-            console.log(result);
-            let title = result[0].title;
-            let author = result[0].Author
-            res.render("Poems", {title : title, author : author})
-
-        }else{console.log(err)}
-    })
-})
-app.post("/write", (req, res)=>{
+app.post("/", (req, res)=>{
     let newPoem = new MyPoem({
         title : req.body.title,
         Poem : req.body.poem,
