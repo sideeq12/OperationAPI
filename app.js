@@ -20,7 +20,7 @@ const MyPoem = mongoose.model("MyPoem", myApischema)
 
 
 app.get("/write", (req, res)=>{
-   res.sendFile( __dirname +"/index.html")
+   res.render("index")
 })
 app.get("/", (req,res)=>{
     res.sendFile(__dirname+"/Poems.html")
