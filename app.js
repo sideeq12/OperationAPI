@@ -20,6 +20,11 @@ const MyPoem = mongoose.model("MyPoem", myApischema)
 
 
 app.get("/", (req, res)=>{
+    // MyPoem.find({}, (err, result)=>{
+    //     if(!err){
+    //         console.log(result)
+    //     }else{console.log(err)}
+    // })
    res.render("index")
 })
 app.post("/", (req, res)=>{
@@ -38,7 +43,7 @@ app.post("/", (req, res)=>{
   
 })
 app.get("/request", (req,res)=>{
-    MyPoem.findOne({ _id : "5fb802863b16901d48c188cc"}, (err, result)=>{
+    MyPoem.find({}, (err, result)=>{
         if(err){
             console.log(err)
         }else{
